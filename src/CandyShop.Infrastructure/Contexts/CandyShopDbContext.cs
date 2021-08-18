@@ -1,15 +1,15 @@
 ﻿using System;
 using CandyShop.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace CandyShop.Infrastructure.Contexts
 {
-    public class CandyShopDbContext : DbContext
+    public class CandyShopDbContext : IdentityDbContext<User>
     {
         public CandyShopDbContext(DbContextOptions<CandyShopDbContext> options)
-            : base(options) { }
+             : base(options) { }
         public DbSet<Sweetness> Sweetnesses{ get; set; }
-        public DbSet<User> Users{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,8 @@ namespace CandyShop.Infrastructure.Contexts
                 .HasConversion(
                     v => v.ToString(),
                     v => (SweetnessCategory)Enum.Parse(typeof(SweetnessCategory), v));
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
