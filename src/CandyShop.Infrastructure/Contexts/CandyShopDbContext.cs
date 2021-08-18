@@ -9,6 +9,7 @@ namespace CandyShop.Infrastructure.Contexts
         public CandyShopDbContext(DbContextOptions<CandyShopDbContext> options)
             : base(options) { }
         public DbSet<Sweetness> Sweetnesses{ get; set; }
+        public DbSet<User> Users{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
