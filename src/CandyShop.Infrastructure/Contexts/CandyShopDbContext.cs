@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CandyShop.Infrastructure.Contexts
 {
-    internal class CandyShopDbContext : DbContext
+    public class CandyShopDbContext : DbContext
     {
         public CandyShopDbContext(DbContextOptions<CandyShopDbContext> options)
             : base(options) { }
