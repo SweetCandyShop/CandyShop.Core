@@ -7,7 +7,7 @@ namespace CandyShop.Core.Models
         public string Name{ get; set; }
         public float Weight { get; set; }
         public int Calories { get; set; }
-        public TimeSpan ShelfLife { get; set; }
+        public string ShelfLife { get; set; }
         public SweetnessCategory SweetnessCategory { get; set; }
     }
 }
